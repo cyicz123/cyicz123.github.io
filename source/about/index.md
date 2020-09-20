@@ -1,5 +1,5 @@
 ---
-title: about
+title: About
 date: 2020-09-15 22:30:18
 ---
 
@@ -9,7 +9,7 @@ date: 2020-09-15 22:30:18
 >
 > <div class="text-center">
 >   <div class="site-author-avatar">
->     <img src="https://cyicz123.top/avatar.jpg" alt="portrait" title="ID : cyicz123" width="96">
+>     <img src="https://cyicz123.top/avatar.jpg" alt="portrait" title="ID : 爱逍遥" width="96">
 >   </div>
 > </div>
 
@@ -31,7 +31,7 @@ date: 2020-09-15 22:30:18
 
 ## 联系方式
 
-网络上见到的 `cyicz123` 或者 `潇潇雨歇` 的 ID 大部分应该是我（少部分是我弟抢注我的ID）
+网络上见到的 `ixiaoyao`、`爱逍遥`、`cyicz123` 或者 `潇潇雨歇` 的 ID 大部分应该是我（少部分是我弟抢注我的ID）
 
 - Email：edu.cyicz123@outlook.com
 - Github：[cyicz123](https://github.com/cyicz123)
