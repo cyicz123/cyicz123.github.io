@@ -8,7 +8,6 @@ tags:
 categories:
     - [学习]
     - [英语]
-top: 1
 ---
 
 LCFI is running a series of projects on the nature and impact of AI. There is five modules in the following.

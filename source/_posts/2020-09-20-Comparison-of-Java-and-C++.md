@@ -8,7 +8,7 @@ categories:
 	- [学习]
 	- [英语]
 comment: true
-top: 1
+
 ---
 
 ## the similarities 
