@@ -60,15 +60,17 @@ wordcloud:
     
 #页脚
 footer:
+  powered:
+    enable: true
   since: 2020
   beian:
-    enable: false
-    icp: 
+    enable: true
+    icp: 闽ICP备20002716号-3号
   #custom_text: <a style="display:inline-block" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="blank" title="又拍云"><img height="30" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/logo/upyun-logo.png" alt="upyun"/></a>
   custom_text: <p>本网站由<a style="display:inline-block" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="blank" title="又拍云"><img height="30" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/logo/upyun-logo.png" alt="upyun"/></a>实现cdn加速/云储存服务</p>
   # ...
   live_time:
-    enable: true
+    enable: false
     prefix: 本博客已萌萌哒地运行
     suffix: (●'◡'●)
     start_time: "2020-09-16T00:00:00"
@@ -200,13 +202,12 @@ katex:
   copy_tex: true
   global: false
 
-  baidu_push: true
 
 busuanzi:
   enable: true
-  site_uv: true
+  site_uv: false
   site_uv_icon: icon-user-line
-  site_pv: true
+  site_pv: false
   site_pv_icon: icon-eye-line
   page_pv: true
   page_pv_icon: icon-eye-line
