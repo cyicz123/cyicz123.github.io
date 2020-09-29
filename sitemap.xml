@@ -65,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://cyicz123.top/about/index.html</loc>
+    <loc>https://cyicz123.top/about/site.html</loc>
     
     <lastmod>2020-09-23</lastmod>
     
   </url>
   
   <url>
-    <loc>https://cyicz123.top/about/site.html</loc>
+    <loc>https://cyicz123.top/about/index.html</loc>
     
     <lastmod>2020-09-23</lastmod>
     
@@ -116,7 +116,14 @@
 
   
   <url>
-    <loc>https://cyicz123.top/tags/%E8%8B%B1%E8%AF%AD/</loc>
+    <loc>https://cyicz123.top/tags/%E4%BA%BA%E7%94%9F%E8%A7%84%E5%88%92/</loc>
+    <lastmod>2020-09-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyicz123.top/tags/%E8%80%83%E7%A0%94/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -130,14 +137,7 @@
   </url>
   
   <url>
-    <loc>https://cyicz123.top/tags/%E4%BA%BA%E7%94%9F%E8%A7%84%E5%88%92/</loc>
-    <lastmod>2020-09-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://cyicz123.top/tags/%E8%80%83%E7%A0%94/</loc>
+    <loc>https://cyicz123.top/tags/%E8%8B%B1%E8%AF%AD/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -153,14 +153,14 @@
 
   
   <url>
-    <loc>https://cyicz123.top/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://cyicz123.top/categories/%E4%BA%BA%E7%94%9F%E8%A7%84%E5%88%92/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://cyicz123.top/categories/%E4%BA%BA%E7%94%9F%E8%A7%84%E5%88%92/</loc>
+    <loc>https://cyicz123.top/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -174,14 +174,14 @@
   </url>
   
   <url>
-    <loc>https://cyicz123.top/categories/%E8%8B%B1%E8%AF%AD/</loc>
+    <loc>https://cyicz123.top/categories/%E4%BA%BA%E7%94%9F%E8%A7%84%E5%88%92/%E8%80%83%E7%A0%94/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://cyicz123.top/categories/%E4%BA%BA%E7%94%9F%E8%A7%84%E5%88%92/%E8%80%83%E7%A0%94/</loc>
+    <loc>https://cyicz123.top/categories/%E8%8B%B1%E8%AF%AD/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
