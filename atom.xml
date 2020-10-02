@@ -6,7 +6,7 @@
   <link href="https://cyicz123.top/atom.xml" rel="self"/>
   
   <link href="https://cyicz123.top/"/>
-  <updated>2020-09-26T16:14:10.632Z</updated>
+  <updated>2020-10-02T02:58:31.095Z</updated>
   <id>https://cyicz123.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RM编程环境配置</title>
+    <link href="https://cyicz123.top/2020/10/01/RM%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    <id>https://cyicz123.top/2020/10/01/RM%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</id>
+    <published>2020-10-01T00:12:24.000Z</published>
+    <updated>2020-10-02T02:58:31.095Z</updated>
+    
+    <content type="html"><![CDATA[<p>新的RM赛季又开始了，今年我希望能有更多萌新加入我们战队。之前战队培训大家做的不是很好，导致萌新入门难度还是有一些的，所以今年我希望能写完一系列教程，让零基础有热情的萌新能更快入门。</p><a id="more"></a><h2 id="下载VS-2019"><a href="#下载VS-2019" class="headerlink" title="下载VS 2019"></a>下载VS 2019</h2><h3 id="1-百度搜索VS-2019"><a href="#1-百度搜索VS-2019" class="headerlink" title="1. 百度搜索VS 2019"></a>1. 百度搜索<code>VS 2019</code></h3><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002100601.png" alt="vscode搜索" loading="lazy"></p><h3 id="2-下载社区版"><a href="#2-下载社区版" class="headerlink" title="2. 下载社区版"></a>2. 下载社区版</h3><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002100800.png" alt="下载社区版" loading="lazy"></p><h2 id="安装VS-2019"><a href="#安装VS-2019" class="headerlink" title="安装VS 2019"></a>安装VS 2019</h2><p>前面所有步骤略过。</p><p>安装位置最好默认安装，然后因为我们只需要用VS 2019在windows环境下的C++，所以只勾选使用C++的桌面开发。然后点击安装，喝杯咖啡等待下载安装。<br><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002101918.png" alt="勾选" loading="lazy"></p><p>一杯咖啡后安装完毕，点击重启计算机。</p><h2 id="编写自己的第一个程序Hello-world"><a href="#编写自己的第一个程序Hello-world" class="headerlink" title="编写自己的第一个程序Hello world"></a>编写自己的第一个程序Hello world</h2><p>启动下载好的VS 2019并且按照提示登陆自己的微软账号。</p><p> 选择创建新项目</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002104421.png" alt="创建新项目" loading="lazy"></p><p>选择创建空项目或者控制台应用都可以。这里我选择的是空项目。</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002104453.png" alt="选择空项目" loading="lazy"></p><p>在右侧源文件选项中右键点击新建文件，或者Ctrl+Shift+A直接快捷键新建文件。</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002105230.png" loading="lazy"></p><p>选择C++文件，名称最好改为英文名称，这里我改为main.cpp</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002105256.png" loading="lazy"></p><p>输入代码</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;using namespace std;int main()&#123;    cout&lt;&lt;&quot;Hello world!&quot;&lt;&lt;endl;    &#x2F;&#x2F;可以在双引号里写自己想输出的文字。    &#x2F;&#x2F;所有符号一定要是英文输入法里的符号。；和;是不同的。    return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>F5执行程序</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002105749.png" alt="程序结果" loading="lazy"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;新的RM赛季又开始了，今年我希望能有更多萌新加入我们战队。之前战队培训大家做的不是很好，导致萌新入门难度还是有一些的，所以今年我希望能写完一系列教程，让零基础有热情的萌新能更快入门。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://cyicz123.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="RM" scheme="https://cyicz123.top/categories/%E6%95%99%E7%A8%8B/RM/"/>
+    
+    
+    <category term="RM" scheme="https://cyicz123.top/tags/RM/"/>
+    
+    <category term="教程" scheme="https://cyicz123.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>没人看就胡说八道吧</title>
