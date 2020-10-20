@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title>Principles of Search Engines</title>
+      <link href="2020/10/13/Principles-of-Search-Engines/"/>
+      <url>2020/10/13/Principles-of-Search-Engines/</url>
+      
+        <content type="html"><![CDATA[<h2 id="What’s-the-traditional-principles-of-search-engines"><a href="#What’s-the-traditional-principles-of-search-engines" class="headerlink" title="What’s the traditional principles of search engines?"></a>What’s the traditional principles of search engines?</h2><p>Search engine is a computer program that helps users search for content they need. The traditional search engine consists of three modules as shown in the following.</p><a id="more"></a><p>搜索引擎是一个帮助用户搜索他们需要内容的计算机程序。传统搜索引擎由如下图所示的三个模块组成</p><p><img src="http://image.cyicz123.top/img/20201012000200.png" alt="three modules" loading="lazy"></p><h3 id="Web-spider"><a href="#Web-spider" class="headerlink" title="Web spider"></a>Web spider</h3><p>Information on the Internet is spread all over the world. If a search engine wants to answer users’ searches, it must first rely on web spiders to store web pages on its own local server. Web spiders continuously send requests to various websites and store the obtained web pages. </p><p>So how does it know where to send the request? Search engines usually use links between web pages to solve this question. Web spiders start from a web page, extract links to other pages, and treat them as the next request. Then Repeat this process over and over again. There are many details to be considered here. For example, how to avoid circularly linked web pages, how to parse web documents (usually in html format, but there are also many other formats), how to extract links inside, and how to handle errors when the link cannot be opened.</p><p>互联网上的信息遍布世界各地，搜索引擎要想回答用户的搜索，首先要依靠网路爬虫把网页存在自己本地的服务器上。 网络爬虫不停的向各种网站发送请求，将所得到的网页存储起来。那么它怎么知道往哪发送请求呢?搜索引擎通常的做法是利用网页之间的链接.网络爬虫从一个网页出发,提取出指向其他页面的链接，把它们当成将下次要请求的对象.然后不停重复这个过程。这里有很多细节要被考虑。例如如何避免循环链接的网页,如何解析网页文档(通常是html格式，但也有很多其他格式）如何提取里边的链接;当链接无法打开时如何对错误进行处理等。</p><h3 id="Index-algorithm"><a href="#Index-algorithm" class="headerlink" title="Index algorithm"></a>Index algorithm</h3><p>How to find information in complex data?</p><p>Every word that appears in a document owned by a search engine has an inverted list. It records how many documents the word appears in, which documents are, how many times each document section appears, and where it appears respectively. </p><p>For example, the word Apple appears in documents 1, 7, 19, 34, 102. Among them, document 1 appears 3 times, respectively at positions 20, 105, and 700. In this way, when searching for Apple, Google does not need to traverse all the documents, only need to find the inverted list corresponding to each word to know where the word appears. Every web document has more than just text information. It may also include URLs, file names, references, etc. In order to improve search quality, search engines need to process different parts of the document separately to construct a reverse list. Each part of the word must be added to the inverted list of words belonging to this part.</p><p>如何在繁杂的数据中找到信息？</p><p>搜索引擎所拥有的文档中出现的每一个单词都拥有一个反转列表。它记录了这个单词在多少文档中出现，分别是哪些文档，每个文档分部出现多少次，分别出现在什么位置等信息。比如Apple这个词出现在文档1，7，19，34，102。其中文档1中出现了3次，分别在位置20，105，700。这样当搜索Apple时，Goolge就不用遍历所有的文档，只需要查找每个单词对应的反转列表就可以知道这个词在哪里出现了。每一个网络文档不仅只有文本信息。它还可能包括URL，文件名，引用等部分。为了提高搜索质量，搜索引擎需要对文档的不同部分分别处理，构造反转列表。每一部分的单词都要被加入到这个词属于此部分的反转列表里。</p><h3 id="Search-algorithm"><a href="#Search-algorithm" class="headerlink" title="Search algorithm"></a>Search algorithm</h3><p>If the search engine has an index, it can quickly find what users need. As mentioned earlier, search engines find matching content based on users’ information needs. Information needs come from user input. How to understand it has many questions. Simply put, each search sentence will be parsed into a tree structure: leaf nodes are keywords. Then search based on keywords.</p><p>如果搜索引擎有了索引，它就可以快速找到用户所需内容了。前文说过搜索引擎根据用户的信息需求查找匹配的内容。信息需求来自于用户输入。如何理解它有很大学问。简单的说，每个搜索语句会被解析成一个树形结构:叶子节点就是一个个关键词.然后依据关键词检索.</p><h2 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a>PageRank</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>The PageRank algorithm calculates the PageRank value of each web page, and then ranks the importance of the web pages according to the value of this value.</p><p>The core idea of the PageRank algorithm is that if a webpage is linked to by many other webpages, it means that this webpage is more important, that is, the PageRank value will be relatively high. And if a webpage with a high PageRank value links to another webpage, it will be linked The PageRank value of the web page you arrive will increase accordingly</p><p>PageRank算法计算每一个网页的PageRank值，然后根据这个值的大小对网页的重要性进行排序。PageRank算法的核心思想是如果一个网页被很多其他网页链接到的话说明这个网页比较重要，也就是PageRank值会相对较高.而且如果一个PageRank值很高的网页链接到一个其他的网页，那么被链接到的网页的PageRank值会相应地因此而提高</p><h3 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h3><p>$$<br>PR(A)=1-d+d(PR(T_1)/C(T_1)+\cdots+PR(T_n)/C(T_n))<br>$$</p><blockquote><p>PR(A) is the PR value of page A</p><p>PR(Ti) is the PR value of page Ti, where page Ti refers to a certain page among all pages of A</p><p>C(Ti) is the out degree of page Ti, that is, the number of edges where Ti points to other pages</p><p>d is the damping coefficient, and its meaning is the probability that the user will continue to browse backwards after reaching a certain page at any time,</p><p>PR(A)是页面A的PR值</p><p>PR(Ti)是页面Ti的PR值，在这里，页面Ti是指向A的所有页面中的某个页面</p><p>C(Ti)是页面Ti的出度，也就是Ti指向其他页面的边的个数</p><p>d 为阻尼系数，其意义是，在任意时刻，用户到达某页面后并继续向后浏览的概率，</p></blockquote><h3 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h3><p>PageRank is a static algorithm that has nothing to do with queries. The PageRank value of all web pages is obtained through offline calculation; it effectively reduces the amount of calculation during online queries and greatly reduces the query response time.</p><p>PageRank是一个与查询无关的静态算法，所有网页的PageRank值通过离线计算获得；有效减少在线查询时的计算量，极大降低了查询响应时间。</p><h2 id="Personal-thoughts-on-using-Baidu"><a href="#Personal-thoughts-on-using-Baidu" class="headerlink" title="Personal thoughts on using Baidu"></a>Personal thoughts on using Baidu</h2><p>For individuals, Baidu’s ranking algorithm is also PageRank.</p><p>个人觉得百度的排序算法也是PageRank</p><h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h2><p>I recommend my personal blog site(<a href="cyicz123.top">cyicz123.top</a>) here. Since I only built the website a month ago, and no other websites reference my website. So I can’t find my website by searching keywords on Baidu.</p><p>我在这里推荐一下我的个人博客网站.由于一个月前我才建好网站,并且没有其他网站引用我的网站.所以我在百度上搜索关键词根本无法找到自己的网站.</p><p><img src="http://image.cyicz123.top/img/20201012010858.png" alt="百度搜索逍遥小站" loading="lazy"></p><p><img src="http://image.cyicz123.top/img/20201012010930.png" alt="精准搜索网站" loading="lazy"></p><h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h3><p>But Baidu is not all the PageRank algorithm adopted. After Baidu’s Fengchao system was launched in 2009, Baidu’s page ranking and advertising ranking were officially separated. The front end of the Baidu search homepage is a promotion advertisement recommended based on search keywords. This is also one point that many people do not like Baidu.</p><p>但是百度也不全是采用的PageRank算法.从2009年百度的凤巢系统上线之后，百度网页排名和广告排名正式分开。百度搜索首页最前端是根据搜索关键词推荐的推广广告.这也是很多人不喜欢百度的一点.</p><p><img src="http://image.cyicz123.top/img/20201012011701.png" alt="百度付费推广" loading="lazy"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 英语 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 英语 </tag>
+            
+            <tag> 搜索引擎 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>大一培训策划</title>
+      <link href="2020/10/13/%E5%A4%A7%E4%B8%80%E5%9F%B9%E8%AE%AD%E7%AD%96%E5%88%92/"/>
+      <url>2020/10/13/%E5%A4%A7%E4%B8%80%E5%9F%B9%E8%AE%AD%E7%AD%96%E5%88%92/</url>
+      
+        <content type="html"><![CDATA[<p>新的赛季又开始了，每年自己都会进步一点，今年仍然是我负责培训。今年希望能让培训变得更好，让萌新的留存率更高。只有不断的人才才是战队第一生产力。毕竟一年能比一年强，总有一年华机可以站在总决赛的赛场上的。</p><a id="more"></a><h2 id="培训内容"><a href="#培训内容" class="headerlink" title="培训内容"></a>培训内容</h2><h3 id="1-C-入门到面向对象程序设计"><a href="#1-C-入门到面向对象程序设计" class="headerlink" title="1. C++入门到面向对象程序设计"></a>1. C++入门到面向对象程序设计</h3><p>b站<a href="https://www.bilibili.com/video/BV17s411N78s/">《带你学C带你飞 小甲鱼》</a>学到p31</p><p>中国大学MOOC<a href="https://www.icourse163.org/learn/PKU-1002029030?tid=1450432459#/learn/announce">程序设计与算法（三）C++面向对象程序设计  北大郭炜</a> </p><p>学完前六周课程</p><p>参考资料 </p><p><a href="https://www.runoob.com/cplusplus/cpp-tutorial.html">C++菜鸟教程</a></p><p>书籍</p><p>C++ Primer Plus (书籍是工具书，查阅而不是全看)链接：<a href="https://pan.baidu.com/s/1_x_Ke1DJ8FJ4eOHZOgZjiw">https://pan.baidu.com/s/1_x_Ke1DJ8FJ4eOHZOgZjiw</a>  提取码：j3ga </p><h3 id="2-Linux操作系统的使用"><a href="#2-Linux操作系统的使用" class="headerlink" title="2. Linux操作系统的使用"></a>2. Linux操作系统的使用</h3><p>b站<a href="https://www.bilibili.com/video/BV1dW411M7xL/">尚硅谷Linux教程</a>学到p38</p><p>参考资料</p><p><a href="https://www.runoob.com/linux/linux-tutorial.html">linux 菜鸟教程</a></p><p>书籍</p><p>鸟叔的linux私房菜(书籍是工具书，查阅而不是全看)链接：<a href="https://pan.baidu.com/s/1axTMam4jBCencH6zNnrvng">https://pan.baidu.com/s/1axTMam4jBCencH6zNnrvng</a><br>提取码：P89k </p><h2 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h2><h3 id="1-自我介绍"><a href="#1-自我介绍" class="headerlink" title="1. 自我介绍"></a>1. 自我介绍</h3><p>助教们介绍自己，并且分享自己想对学弟学妹们说的经验和故事。</p><h3 id="2-介绍培训计划，分配助教"><a href="#2-介绍培训计划，分配助教" class="headerlink" title="2. 介绍培训计划，分配助教"></a>2. 介绍培训计划，分配助教</h3><p>以新生自学为主，战队人员作为助教，每周告诉新生学习内容和视频，然后给萌新答疑。</p><h3 id="3-搭建C-编程环境"><a href="#3-搭建C-编程环境" class="headerlink" title="3. 搭建C++编程环境"></a>3. 搭建C++编程环境</h3><p>我来带领萌新搭建C++编程环境，介绍VS2019使用方法。带领大家写出自己的第一个程序。</p><h3 id="4-初步介绍git版本控制，介绍如何用markdown编写文档"><a href="#4-初步介绍git版本控制，介绍如何用markdown编写文档" class="headerlink" title="4. 初步介绍git版本控制，介绍如何用markdown编写文档"></a>4. 初步介绍git版本控制，介绍如何用markdown编写文档</h3><h2 id="第二周"><a href="#第二周" class="headerlink" title="第二周"></a>第二周</h2><p>暂定，根据第一周教学结果来制订。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> RM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> RM </tag>
+            
+            <tag> 教程 </tag>
+            
+            <tag> 培训计划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>OpenCV4.1.0安装</title>
       <link href="2020/10/02/OpenCV4-1-0%E5%AE%89%E8%A3%85/"/>
       <url>2020/10/02/OpenCV4-1-0%E5%AE%89%E8%A3%85/</url>
@@ -153,9 +211,9 @@
       
       <categories>
           
-          <category> 学习 </category>
-          
           <category> 英语 </category>
+          
+          <category> 学习 </category>
           
       </categories>
       
@@ -242,9 +300,9 @@
       
       <categories>
           
-          <category> 学习 </category>
-          
           <category> 英语 </category>
+          
+          <category> 学习 </category>
           
       </categories>
       
