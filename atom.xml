@@ -6,7 +6,7 @@
   <link href="https://cyicz123.top/atom.xml" rel="self"/>
   
   <link href="https://cyicz123.top/"/>
-  <updated>2020-10-13T13:48:24.132Z</updated>
+  <updated>2020-10-25T06:16:57.880Z</updated>
   <id>https://cyicz123.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>github团队协作</title>
+    <link href="https://cyicz123.top/2020/10/25/github%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C/"/>
+    <id>https://cyicz123.top/2020/10/25/github%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C/</id>
+    <published>2020-10-25T06:13:55.000Z</published>
+    <updated>2020-10-25T06:16:57.880Z</updated>
+    
+    <content type="html"><![CDATA[<p>视觉组开发代码需要用一个版本控制工具，因此需要懂一些Git和Github作为团队协作的操作。这篇博客主要基于我们战队今年开源项目为实例演示团队合作流程。</p><p>首先大家需要掌握基础的Git操作。</p><a id="more"></a><p>由于暂时代码开发不需要用到多分支，所以我们的主仓库只用了两个分支，一个main分支用来存储稳定版本代码，另一个是开发分支dev，用于开发代码。</p><p>团队协作流程大概是这样的：</p><ol><li>战队账号创建一个主仓库</li><li>新建分支dev</li><li>拉小伙伴进入项目</li></ol><p>个人流程是这样的：</p><ol><li>个人账号同意战队账号邀请</li><li>个人账号fork战队的项目</li><li>clone到本地开发</li><li>要提交时先合并一下战队仓库最新的代码</li><li>然后从本地提交给个人远程仓库</li><li>网页上点击PR按钮，待管理员审核后，个人仓库代码合并入主仓库</li></ol><h2 id="管理员操作流程"><a href="#管理员操作流程" class="headerlink" title="管理员操作流程"></a>管理员操作流程</h2><h3 id="创建组织、队伍和仓库"><a href="#创建组织、队伍和仓库" class="headerlink" title="创建组织、队伍和仓库"></a>创建组织、队伍和仓库</h3><p>点击Github右上角+，创建组织</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025132226.png" alt="创建组织" loading="lazy"></p><p>白嫖免费的组织</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025132410.png" alt="选择个人账户" loading="lazy"></p><p>创建组织完成后，回到主页点击右上角个人头像，选择Your organizations</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025132749.png" alt="Your organizations" loading="lazy"></p><p>找到自己刚刚创建的组织，然后点击进入组织页面。并选择teams选项来创建队伍</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025132949.png" alt="创建队伍" loading="lazy"></p><p>点击New team</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025133053.png" alt="team" loading="lazy"></p><p>进入刚刚创建好的team页面，点击Member，点击Add a member添加队员。</p><p>最后回到组织主页，新建项目仓库。</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025133323.png" alt="新建项目仓库" loading="lazy"></p><p>进入仓库主页，点击Setting，点击Manage access设置队员权限，点击Invite teams or peaple邀请刚刚创立的队伍。然后设置队伍队员权限为只读。</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025133912.png" loading="lazy"></p><h2 id="队员流程"><a href="#队员流程" class="headerlink" title="队员流程"></a>队员流程</h2><h3 id="1-fork主仓库到自己仓库"><a href="#1-fork主仓库到自己仓库" class="headerlink" title="1. fork主仓库到自己仓库"></a>1. fork主仓库到自己仓库</h3><h3 id="2-将个人仓库clone到本地"><a href="#2-将个人仓库clone到本地" class="headerlink" title="2. 将个人仓库clone到本地"></a>2. 将个人仓库clone到本地</h3><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025134239.png" alt="获取clone地址" loading="lazy"></p><pre class="line-numbers language-none"><code class="language-none">git clone url<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="3-设置远程地址简称"><a href="#3-设置远程地址简称" class="headerlink" title="3. 设置远程地址简称"></a>3. 设置远程地址简称</h3><pre class="line-numbers language-none"><code class="language-none">git remote add origin url # 这里的url是个人仓库的地址git remote add upstream url # 这里的url是战队仓库的地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="4-fetch、merge和push"><a href="#4-fetch、merge和push" class="headerlink" title="4. fetch、merge和push"></a>4. fetch、merge和push</h3><p>这三个命令是团队协作的关键。</p><p>首先解释一下，第三步里为什么要设置两个远程地址的简称。个人fork主仓库里的内容是将主仓库当时的内容拷贝一份到自己的个人仓库里。但是有个问题是，<strong>当自己的个人代码开发完毕上传到个人远程仓库再PR给主仓库时，主仓库可能在个人拷贝后更新了版本。</strong>这样个人上传的代码是基于旧版本开发的，那么就会有问题。</p><p>所以在个人将自己本地代码提交给远程仓库时，要先<strong>手动更新一下个人远程仓库保持和战队主仓库同步。</strong>然后PR给主仓库。</p><p>具体步骤如下：</p><h4 id="1-开发代码前更新一下个人仓库"><a href="#1-开发代码前更新一下个人仓库" class="headerlink" title="1. 开发代码前更新一下个人仓库"></a>1. 开发代码前更新一下个人仓库</h4><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025135600.png" alt="fetch" loading="lazy"></p><p><code>upstream</code>代表战队仓库地址，<code>dev</code>代表要拉取的相应分支（这里拉取的是<code>deb</code>分支）</p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025135957.png" alt="merge" loading="lazy"></p><p>将刚刚拉取的远程内容合并到本地当前分支，<code>FETCH_HEAD</code>是git里代表刚刚用fetch拉取的内容。</p><h4 id="2-开发代码"><a href="#2-开发代码" class="headerlink" title="2. 开发代码"></a>2. 开发代码</h4><p>开发完后，使用<code>git add .</code> <code>git commit -m &quot;提交备注&quot;</code>来提交版本。</p><h4 id="3-重复第一步"><a href="#3-重复第一步" class="headerlink" title="3. 重复第一步"></a>3. 重复第一步</h4><p>再次拉取战队仓库最新代码，因为个人开发过程中战队仓库可能有修改。</p><h4 id="4-提交本地代码至个人远程仓库"><a href="#4-提交本地代码至个人远程仓库" class="headerlink" title="4. 提交本地代码至个人远程仓库"></a>4. 提交本地代码至个人远程仓库</h4><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025140622.png" alt="push" loading="lazy"></p><p><code>origin</code>代表个人远程仓库地址，第一个<code>main</code>代表本地分支名字，第二个<code>main</code>代表要上传到的远程分支名。</p><pre class="line-numbers language-none"><code class="language-none">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="5-在GitHub网页上点击PR"><a href="#5-在GitHub网页上点击PR" class="headerlink" title="5. 在GitHub网页上点击PR"></a>5. 在GitHub网页上点击PR</h4><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025141150.png" alt="Pull request" loading="lazy"></p><p><img src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201025141212.png" alt="注意事项" loading="lazy"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;视觉组开发代码需要用一个版本控制工具，因此需要懂一些Git和Github作为团队协作的操作。这篇博客主要基于我们战队今年开源项目为实例演示团队合作流程。&lt;/p&gt;
+&lt;p&gt;首先大家需要掌握基础的Git操作。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://cyicz123.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="RM" scheme="https://cyicz123.top/categories/%E6%95%99%E7%A8%8B/RM/"/>
+    
+    
+    <category term="RM" scheme="https://cyicz123.top/tags/RM/"/>
+    
+    <category term="Github" scheme="https://cyicz123.top/tags/Github/"/>
+    
+  </entry>
   
   <entry>
     <title>Principles of Search Engines</title>
