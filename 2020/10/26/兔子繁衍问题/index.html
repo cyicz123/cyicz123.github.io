@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="爱逍遥"><meta name="copyright" content="爱逍遥"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>兔子繁衍问题 | 逍遥小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="none" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.19/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_stqaphw3j4.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.css"><script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false},
+      {left: "\\(", right: "\\)", display: false},
+      {left: "\\[", right: "\\]", display: true}
+    ]
+  });
+});</script><link rel="shortcut icon" type="image/svg+xml" href="/rabbit.png"><link rel="mask-icon" href="/rabbit.png" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="/css/hexo-theme-yun.css"><link rel="alternate" href="/atom.xml" title="逍遥小站" type="application/atom+xml"><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"root":"/","title":"逍遥小站","version":"1.0.0","anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><link rel="preconnect" href="https://stats.g.doubleclick.net" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=UA-178391743-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-178391743-1');</script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9KWR9L');</script><!-- End Google Tag Manager --><meta name="description" content="摘要本文针对兔子繁衍问题分析和研究。主要对问题一基础兔子繁衍问题，问题二寿命六个月繁衍问题，问题三死亡率$\frac{1}{3}$繁衍问题展开了一系列递推关系式与模型的建立与计算，得出最终兔子族群数量，并探讨了兔子数量稳定时d的值。 针对基础兔子繁衍问题，也就是兔子长生不老情况下，本文观察了兔子数目与月份之间关系，利用斐波那契数列公式对其进行了计算与建模，得出结果。 针对兔子存活期为六个月的繁衍问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="兔子繁衍问题">
+<meta property="og:url" content="https://cyicz123.top/2020/10/26/%E5%85%94%E5%AD%90%E7%B9%81%E8%A1%8D%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="逍遥小站">
+<meta property="og:description" content="摘要本文针对兔子繁衍问题分析和研究。主要对问题一基础兔子繁衍问题，问题二寿命六个月繁衍问题，问题三死亡率$\frac{1}{3}$繁衍问题展开了一系列递推关系式与模型的建立与计算，得出最终兔子族群数量，并探讨了兔子数量稳定时d的值。 针对基础兔子繁衍问题，也就是兔子长生不老情况下，本文观察了兔子数目与月份之间关系，利用斐波那契数列公式对其进行了计算与建模，得出结果。 针对兔子存活期为六个月的繁衍问">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://image.cyicz123.top/img/20201026080128.png">
+<meta property="og:image" content="http://image.cyicz123.top/img/20201026080338.png">
+<meta property="og:image" content="http://image.cyicz123.top/img/20201026091033.png">
+<meta property="article:published_time" content="2020-10-26T01:47:20.000Z">
+<meta property="article:modified_time" content="2020-10-26T01:50:09.765Z">
+<meta property="article:author" content="爱逍遥">
+<meta property="article:tag" content="数学建模">
+<meta property="article:tag" content="递归">
+<meta property="article:tag" content="斐波拉契数列">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://image.cyicz123.top/img/20201026080128.png"><script src="/js/ui/mode.js"></script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info mickey-mouse"><a class="site-author-avatar" href="/about/" title="爱逍遥"><img width="96" loading="lazy" src="/avatar.jpg" alt="爱逍遥"></a><div class="site-author-name"><a href="/about/">爱逍遥</a></div><a class="site-name" href="/about/site.html">逍遥小站</a><sub class="site-subtitle"></sub><div class="site-desciption">个人的知识分享和生活记录</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">15</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">7</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">16</span></a></div><a class="site-state-item hty-icon-button" href="/recommend" title="推荐"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-heart-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/cyicz123" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:edu.cyicz123@outlook.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/cyicz123.top" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a><a class="links-item hty-icon-button" href="/girls/" title="喜欢的女孩子" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%97%AE%E9%A2%98%E9%87%8D%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">一、问题重述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%97%AE%E9%A2%98%E4%B8%80"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 问题一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E9%97%AE%E9%A2%98%E4%BA%8C"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 问题二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E9%97%AE%E9%A2%98%E4%B8%89"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 问题三</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E5%81%87%E8%AE%BE"><span class="toc-number">3.</span> <span class="toc-text">二、基本假设</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%AC%A6%E5%8F%B7%E8%AF%B4%E6%98%8E"><span class="toc-number">4.</span> <span class="toc-text">三、符号说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">四、问题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E9%97%AE%E9%A2%98%E4%B8%80"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 问题一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E9%97%AE%E9%A2%98%E4%BA%8C"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 问题二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E9%97%AE%E9%A2%98%E4%B8%89"><span class="toc-number">5.3.</span> <span class="toc-text">4.3 问题三</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%A8%A1%E5%9E%8B%E6%B1%82%E8%A7%A3"><span class="toc-number">6.</span> <span class="toc-text">五、模型求解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E9%97%AE%E9%A2%98%E4%B8%80"><span class="toc-number">6.1.</span> <span class="toc-text">5.1 问题一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E9%97%AE%E9%A2%98%E4%BA%8C"><span class="toc-number">6.2.</span> <span class="toc-text">5.2 问题二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E9%97%AE%E9%A2%98%E4%B8%89"><span class="toc-number">6.3.</span> <span class="toc-text">5.3 问题三</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7%E4%B8%8E%E6%8E%A8%E5%B9%BF"><span class="toc-number">7.</span> <span class="toc-text">六、模型评价与推广</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E5%A5%BD%E7%9A%84%E6%96%B9%E9%9D%A2"><span class="toc-number">7.1.</span> <span class="toc-text">6.1 好的方面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E6%A8%A1%E5%9E%8B%E6%8E%A8%E5%B9%BF"><span class="toc-number">7.2.</span> <span class="toc-text">6.2 模型推广</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">8.</span> <span class="toc-text">七、参考文献</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://cyicz123.top/2020/10/26/%E5%85%94%E5%AD%90%E7%B9%81%E8%A1%8D%E9%97%AE%E9%A2%98/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="爱逍遥"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="逍遥小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">兔子繁衍问题</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2020-10-26 09:47:20" itemprop="dateCreated datePublished" datetime="2020-10-26T09:47:20+08:00">2020-10-26</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="本文字数">1.6k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="阅读时长">7m</span></span></span><div class="post-classify"><span class="post-category"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span> <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/%E5%AD%A6%E4%B9%A0/" style="--text-color:saddlebrown" itemprop="url" rel="index"><span itemprop="text">学习</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">数学建模</span></a><a class="tag" href="/tags/%E9%80%92%E5%BD%92/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">递归</span></a><a class="tag" href="/tags/%E6%96%90%E6%B3%A2%E6%8B%89%E5%A5%91%E6%95%B0%E5%88%97/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">斐波拉契数列</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本文针对兔子繁衍问题分析和研究。主要对<strong>问题一</strong>基础兔子繁衍问题，<strong>问题二</strong>寿命六个月繁衍问题，<strong>问题三</strong>死亡率$\frac{1}{3}$繁衍问题展开了一系列递推关系式与模型的建立与计算，得出最终兔子族群数量，并探讨了兔子数量稳定时d的值。</p>
+<p>针对基础兔子繁衍问题，也就是兔子长生不老情况下，本文观察了兔子数目与月份之间关系，利用斐波那契数列公式对其进行了计算与建模，得出结果。</p>
+<p>针对兔子存活期为六个月的繁衍问题，本文基于模型一的基础上计算出了兔子数目与月份之间的递推关系式，并对其进行了计算与建模，得出最终结果。</p>
+<p>针对兔子每个月固定死亡率的情况下的繁衍问题，本文也基于模型一的基础上计算出了每月死亡三分之一的情况下，兔子数目与月份之间的递推关系式，并对其进行了计算与建模，得出最终结果。</p>
+<p>关键词：<strong>递归、斐波拉契数列、矩阵</strong></p>
+<h2 id="一、问题重述"><a href="#一、问题重述" class="headerlink" title="一、问题重述"></a>一、问题重述</h2><h3 id="1-1-问题一"><a href="#1-1-问题一" class="headerlink" title="1.1 问题一"></a>1.1 问题一</h3><p>一地区开始时有1000对刚出生的小兔。设兔于出生以后两个月就能生小兔,如果每月每一对兔子恰好生一对小兔，呈出生的兔子都成活,试问一年以后共有多少对兔子,两年后有多少对兔子?</p>
+<h3 id="1-2-问题二"><a href="#1-2-问题二" class="headerlink" title="1.2 问题二"></a>1.2 问题二</h3><p>兔子的寿命只有六个月，那么一年以后共有多少对兔子？两年后呢？</p>
+<h3 id="1-3-问题三"><a href="#1-3-问题三" class="headerlink" title="1.3 问题三"></a>1.3 问题三</h3><p>兔子在每个月均死亡$\frac {1}{3}$    ,求一年后共有多少对兔子</p>
+<h2 id="二、基本假设"><a href="#二、基本假设" class="headerlink" title="二、基本假设"></a>二、基本假设</h2><ul>
+<li>假设每一对兔子都每月恰好生一对兔子</li>
+<li>对于问题一，假设没有兔子死亡</li>
+<li>对于问题二，假设兔子都恰好活六个月</li>
+<li>对于问题三，假设兔子每个月恰好都死亡$\frac {1}{3}$</li>
+</ul>
+<h2 id="三、符号说明"><a href="#三、符号说明" class="headerlink" title="三、符号说明"></a>三、符号说明</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$N_i$</td>
+<td align="center">第$i$个月兔子的数量</td>
+</tr>
+<tr>
+<td>$y(j)$</td>
+<td align="center">第$j$月出生的小兔对数</td>
+</tr>
+<tr>
+<td>$r(j)$</td>
+<td align="center">第$j$月的小兔对数</td>
+</tr>
+<tr>
+<td>$x_k(t)$</td>
+<td align="center">第$t$月寿命为$k$月的兔子数量</td>
+</tr>
+</tbody></table>
+<h2 id="四、问题分析"><a href="#四、问题分析" class="headerlink" title="四、问题分析"></a>四、问题分析</h2><h3 id="4-1-问题一"><a href="#4-1-问题一" class="headerlink" title="4.1 问题一"></a>4.1 问题一</h3><p>先直接推算，在第1月只有1对兔子;第2月也只有一对兔子;在第3月这对兔子生了1对小兔子,共有2对兔子;在第4月,老兔子又生了1对小兔子,共有3对小兔子;在第5个月,老兔子生1对小兔子,且在第3月出生的小兔也生育1对小兔子,故共有5对小兔子,在第6个月,老兔子、在第3、第4月出生的小兔子各生1对小兔子,故共有8对小兔子.类推就可以得到以后各月的数量。</p>
+<p>列表得：</p>
+<table>
+<thead>
+<tr>
+<th>月份</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>total</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+<td>8</td>
+<td>13</td>
+<td>21</td>
+<td>34</td>
+<td>55</td>
+<td>89</td>
+<td>144</td>
+</tr>
+</tbody></table>
+<p>可发现兔子对数符合斐波拉契数列：</p>
+<p>$$ N_{i+1}=N_i+N_{i-1} $$</p>
+<h3 id="4-2-问题二"><a href="#4-2-问题二" class="headerlink" title="4.2 问题二"></a>4.2 问题二</h3><table>
+<thead>
+<tr>
+<th>月份</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>total</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+<td>8</td>
+<td>11</td>
+<td>18</td>
+<td>27</td>
+<td>42</td>
+<td>64</td>
+<td>98</td>
+</tr>
+</tbody></table>
+<p>仔细观察一下每月小兔数的变化情况,我们发现从第7月开始,每月小兔对数就是当月及前5个月所生育的小兔对数之和。而当月出生的小兔对数就是前2月到前6月内出生的小兔对数之和。于是,引入变量$y(j)$,它表示在第$j$月出生的小兔对数，记$r(j)$为第$j$月的小兔对数,则我们发现的规律为：</p>
+<table>
+<thead>
+<tr>
+<th>$i$</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$r(i)$</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+<td>8</td>
+</tr>
+<tr>
+<td>$y(i)$</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<p>$$ y(j)=y(j-2)+y(j-3)+y(j-4)+y(j-5),\space j=7,8,9,\cdots $$</p>
+<p>$$ r(j)=y(j)+y(j-1)+y(j-2)+y(j-3)+y(j-4)+y(j-5) $$</p>
+<p>利用递推关系就很容易用计算机算出以后各月兔子的对数。</p>
+<p>假设$x_k(t)$为第$t$月寿命为$k$月的兔子数量，则</p>
+<p>$x_1(1)=1$,$x_2(1)=0$,$x_3(1)=0$,$x_4(1)=0$,$x_5(1)=0$,$x_6(1)=0$</p>
+<p>递推关系如下：</p>
+<p>$$ x_1(t+1)=x_2(t)+x_3(t)+x_4(t)+x_5(t)\x_2(t+1)=x_1(t)\x_3(t+1)=x_2(t)\x_4(t+1)=x_3(t)\x_5(t+1)=x_4(t)\x_6(t+1)=x_5(t)\r(t+1)=x_1(t+1)+x_2(t+1)+x_3(t+1)+x_4(t+1)+x_5(t+1)+x_6(t+1) $$</p>
+<p>$$  \left[ \begin{matrix}   x_1(t+1) \   x_2(t+1) \   x_3(t+1) \ x_4(t+1) \ x_5(t+1) \x_6(t+1)  \end{matrix}  \right] = \left[ \begin{matrix}0&amp;1&amp;1&amp;1&amp;1&amp;0\1&amp;0&amp;0&amp;0&amp;0&amp;0\0&amp;1&amp;0&amp;0&amp;0&amp;0\0&amp;0&amp;1&amp;0&amp;0&amp;0\0&amp;0&amp;0&amp;1&amp;0&amp;0\0&amp;0&amp;0&amp;0&amp;1&amp;0\end{matrix}  \right]\begin{bmatrix}x_1(t)\x_2(t)\x_3(t)\x_4(t)\x_5(t)\x_6(t)\  \end{bmatrix} $$</p>
+<h3 id="4-3-问题三"><a href="#4-3-问题三" class="headerlink" title="4.3 问题三"></a>4.3 问题三</h3><h2 id="五、模型求解"><a href="#五、模型求解" class="headerlink" title="五、模型求解"></a>五、模型求解</h2><h3 id="5-1-问题一"><a href="#5-1-问题一" class="headerlink" title="5.1 问题一"></a>5.1 问题一</h3><p>递归法</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">def</span> <span class="token function">calculateNumrecursively</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> n <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> n
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span><span class="token punctuation">(</span>calculateNumrecursively<span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> calculateNumrecursively<span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+arr<span class="token operator">=</span>np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">,</span> dtype <span class="token operator">=</span> <span class="token string">'uint64'</span><span class="token punctuation">,</span> order <span class="token operator">=</span> <span class="token string">'C'</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>calculateNumrecursively<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+x_ticks<span class="token operator">=</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">36</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span>x_ticks<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">,</span>arr<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"第35个月兔子对数为："</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span><span class="token number">35</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出</p>
+<p><img src="http://image.cyicz123.top/img/20201026080128.png" alt="第一题递推" loading="lazy"></p>
+<p>数组法</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">calNumArr</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    arr<span class="token operator">=</span>np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>dtype <span class="token operator">=</span> <span class="token string">'uint64'</span><span class="token punctuation">,</span> order <span class="token operator">=</span> <span class="token string">'C'</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> i<span class="token operator">&lt;=</span><span class="token number">1</span><span class="token punctuation">:</span>
+            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>i
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>arr<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> arr
+arr2<span class="token operator">=</span>calNumArr<span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span>
+x_ticks<span class="token operator">=</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">36</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span>x_ticks<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">37</span><span class="token punctuation">)</span><span class="token punctuation">,</span>arr2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"第36个月兔子对数为："</span><span class="token punctuation">,</span>arr2<span class="token punctuation">[</span><span class="token number">36</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="http://image.cyicz123.top/img/20201026080338.png" alt="第一题数组法" loading="lazy"></p>
+<h3 id="5-2-问题二"><a href="#5-2-问题二" class="headerlink" title="5.2 问题二"></a>5.2 问题二</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">calNum2</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    arr1<span class="token operator">=</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    arr2<span class="token operator">=</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    result<span class="token operator">=</span>np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> dtype <span class="token operator">=</span> <span class="token string">'uint64'</span><span class="token punctuation">,</span> order <span class="token operator">=</span> <span class="token string">'C'</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        result<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>np<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span>
+        arr2<span class="token operator">=</span>arr1<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>arr2<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> result
+arr3<span class="token operator">=</span>calNum2<span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span>
+x_ticks<span class="token operator">=</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">36</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span>x_ticks<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">37</span><span class="token punctuation">)</span><span class="token punctuation">,</span>arr3<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"第36个月兔子对数为："</span><span class="token punctuation">,</span>arr3<span class="token punctuation">[</span><span class="token number">36</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出</p>
+<p><img src="http://image.cyicz123.top/img/20201026091033.png" alt="第二题" loading="lazy"></p>
+<h3 id="5-3-问题三"><a href="#5-3-问题三" class="headerlink" title="5.3 问题三"></a>5.3 问题三</h3><h2 id="六、模型评价与推广"><a href="#六、模型评价与推广" class="headerlink" title="六、模型评价与推广"></a>六、模型评价与推广</h2><h3 id="6-1-好的方面"><a href="#6-1-好的方面" class="headerlink" title="6.1 好的方面"></a>6.1 好的方面</h3><p>用递推法取得了不错的效果</p>
+<h3 id="6-2-模型推广"><a href="#6-2-模型推广" class="headerlink" title="6.2 模型推广"></a>6.2 模型推广</h3><p>•兔子在不同的时期生育能力不同，考虑生育情况的变化</p>
+<p>•可以用线性代数的方法解决一大类生物种群数量增长规律的建模问题。</p>
+<h2 id="七、参考文献"><a href="#七、参考文献" class="headerlink" title="七、参考文献"></a>七、参考文献</h2><p>【1】老师上课的ppt</p>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>爱逍遥</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://cyicz123.top/2020/10/26/%E5%85%94%E5%AD%90%E7%B9%81%E8%A1%8D%E9%97%AE%E9%A2%98/" title="兔子繁衍问题">https://cyicz123.top/2020/10/26/%E5%85%94%E5%AD%90%E7%B9%81%E8%A1%8D%E9%97%AE%E9%A2%98/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul><script>document.addEventListener('copy', function (event) {
+  const clipboardData = event.clipboardData || window.clipboardData;
+  if (!clipboardData) { return; }
+  const text = window.getSelection().toString();
+  if (text) {
+    event.preventDefault();
+    clipboardData.setData('text/plain', text + '\n\n本文作者：爱逍遥\n本文链接：https://cyicz123.top/2020/10/26/%E5%85%94%E5%AD%90%E7%B9%81%E8%A1%8D%E9%97%AE%E9%A2%98/\n版权声明：本博客所有文章除特别声明外，均默认采用 CC BY-NC-SA 4.0 许可协议。');
+  }
+});</script></section></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2020/10/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%AE%9E%E9%AA%8C%E8%AE%BA%E6%96%87%E4%B8%80/" rel="next" title="数学建模实验论文一"><span class="post-nav-text">数学建模实验论文一</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span><script>function showUtterances(){ document.querySelector(".utterances").style.display='block'; document.querySelector('#valine-container').style.display='none'; }function showValine(){ document.querySelector('#valine-container').style.display='block'; document.querySelector(".utterances").style.display='none'; }</script></span><br><span><a class="hty-button hty-button--raised" onclick="showValine()">Valine</a><a class="hty-button hty-button--raised" onclick="showUtterances()">utterances</a></span><br><span><style>.utterances{display:none;}</style></span><br></div><div id="valine-container"></div><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function initValine() {
+  const valineConfig = {"enable":true,"appId":"kE6lj9PrcUCJzmQ4Wnx42V2B-gzGzoHsz","appKey":"LDlTKsnxLBNxvrlb2d5WRvmr","placeholder":"大佬求指教&nbsp_(:з」∠)_ （填写邮箱可以收到回复通知～）","avatar":null,"pageSize":10,"visitor":false,"highlight":true,"recordIP":true,"enableQQ":true,"requiredFields":["nick","mail"],"emojiCDN":"//i0.hdslb.com/bfs/emote/","emojiMaps":{"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png","tv_打脸":"56ab10b624063e966bfcb76ea5dc4794d87dfd47.png","tv_抓狂":"fe31c08edad661d63762b04e17b8d5ae3c71a757.png","tv_抠鼻":"c666f55e88d471e51bbd9fab9bb308110824a6eb.png","tv_斜眼笑":"911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png","tv_无奈":"ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png","tv_晕":"5443c22b4d07fb1907ccc610c8e6db254f2461b7.png","tv_流汗":"cead1c351ab8d79e9f369605beb90148db0fbed3.png","tv_流泪":"7e71cde7858f0cd50d74b0264aa26db612a8a167.png","tv_流鼻血":"c32d39db2737f89b904ca32700d140a9241b0767.png","tv_点赞":"f85c354995bd99e28fc76c869bfe42ba6438eff4.png","tv_生气":"26702dcafdab5e8225b43ffd23c94ac1ff932654.png","tv_生病":"8b0ec90e6b86771092a498c54f09fc94621c1900.png","tv_疑问":"0793d949b18d7be716078349c202c15ff166f314.png","tv_白眼":"c1d59f439e379ee50eef488bcb5e5378e5044ea4.png","tv_皱眉":"72ccad6679fea0d14cce648b4d818e09b8ffea2d.png","tv_目瞪口呆":"0b8cb81a68de5d5365212c99375e7ace3e7891b7.png","tv_睡着":"8b196675b53af58264f383c50ad0945048290b33.png","tv_笑哭":"1abc628f6d4f4caf9d0e7800878f4697abbc8273.png","tv_腼腆":"89712c0d4af73e67f89e35cbc518420380a7f6f4.png","tv_色":"61822c7e9aae5da76475e7892534545336b23a6f.png","tv_调侃":"4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png","tv_调皮":"b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png","tv_鄙视":"6e72339f346a692a495b123174b49e4e8e781303.png","tv_闭嘴":"c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png","tv_难过":"87f46748d3f142ebc6586ff58860d0e2fc8263ba.png","tv_馋":"fc7e829b845c43c623c8b490ee3602b7f0e76a31.png","tv_鬼脸":"0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png","tv_黑人问号":"45821a01f51bc867da9edbaa2e070410819a95b2.png","tv_鼓掌":"1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"},"el":"#valine-container","lang":"zh-cn"}
+  valineConfig.path = window.location.pathname
+  new Valine(valineConfig)
+}
+setTimeout(initValine, 1000)</script><style>.utterances {
+  max-width: 100%;
+}</style><script src="https://utteranc.es/client.js" repo="cyicz123/cyicz123.github.io" issue-term="pathname" label="comment" theme="preferred-color-scheme" crossorigin="anonymous" async></script></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">闽ICP备20002716号-3号</a></div><div class="copyright"><span>&copy; 2020 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 爱逍遥</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.2.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.0.0</span></div><div class="footer-custom-text"><p>本网站由<a style="display:inline-block" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="blank" title="又拍云"><img height="30" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/logo/upyun-logo.png" alt="upyun"/></a>实现cdn加速/云储存服务</p></div></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div id="local-search-result"></div></div></div><script defer src="/js/utils.js"></script><script defer src="/js/hexo-theme-yun.js"></script></body></html>
