@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>优雅使用谷歌colab的一些小技巧 | cyicz123的博客</title><meta name="keywords" content="深度学习,Colab,使用技巧"><meta name="author" content="cyicz123"><meta name="copyright" content="cyicz123"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="记录一些方便的技巧高效使用Colab训练自己的模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="优雅使用谷歌colab的一些小技巧">
+<meta property="og:url" content="https://blog.cyicz123.top/posts/d7ca2ef9/index.html">
+<meta property="og:site_name" content="cyicz123的博客">
+<meta property="og:description" content="记录一些方便的技巧高效使用Colab训练自己的模型">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.cyicz123.top/i/2022/06/02/klc0ek-0.png">
+<meta property="article:published_time" content="2021-07-23T07:24:06.000Z">
+<meta property="article:modified_time" content="2022-10-12T12:29:00.804Z">
+<meta property="article:author" content="cyicz123">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="Colab">
+<meta property="article:tag" content="使用技巧">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.cyicz123.top/i/2022/06/02/klc0ek-0.png"><link rel="shortcut icon" href="https://image.cyicz123.top/i/2022/06/03/1skflq-0.png"><link rel="canonical" href="https://blog.cyicz123.top/posts/d7ca2ef9/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//static.cloudflareinsights.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="vtqqXOAcv5Gefo8TtN9Vif-OYFKLG7a5PxyS8PsgH0Y"/><meta name="baidu-site-verification" content="code-NVknD7SdXy"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?91db1c990c79aee7a9c563188382c860";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-P8RP93D1Q6"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-P8RP93D1Q6');
+</script><script defer="defer" data-pjax="data-pjax" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;e715f27998394a36959cfbc81b9b6d07&quot;}"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":300,"languages":{"author":"作者: cyicz123","link":"链接: ","source":"来源: cyicz123的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '优雅使用谷歌colab的一些小技巧',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-12 20:29:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/louztr-0.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 自诉</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://image.cyicz123.top/i/2022/06/02/klc0ek-0.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">cyicz123的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 自诉</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">优雅使用谷歌colab的一些小技巧</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-07-23T07:24:06.000Z" title="发表于 2021-07-23 15:24:06">2021-07-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-12T12:29:00.804Z" title="更新于 2022-10-12 20:29:00">2022-10-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title="优雅使用谷歌colab的一些小技巧"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span class="waline-pageview-count" data-path="/posts/d7ca2ef9/"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/d7ca2ef9/#post-comment"><span class="waline-comment-count" data-path="/posts/d7ca2ef9/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>在学习深度学习过程中，我们往往会苦恼没有好的显卡机器去训练自己的模型。而谷歌提供的高性价比的云gpu服务器Colab很好的解决了这个问题。谷歌服务器拥有如下优缺点：</p>
+<p><strong>优点</strong><br>
+<s>1.  免费（最大的优点）</s></p>
+<ol>
+<li>网络高速，下载环境快</li>
+<li>显卡有k80、t4、p100和v100，付费会员至少是P100</li>
+<li>可以连接google drive</li>
+</ol>
+<p><s><strong>缺点（免费就别嫌弃啦）</strong></s></p>
+<p><s>1.  免费用户只能最多占有服务器12小时</s><br>
+<s>2.  白嫖过度，会只分配k80，不能随心所欲使用</s></p>
+<p>为了更高效率利用<s>免费</s>谷歌高性价比的gpu服务器，所以我写下这篇文章，记录一些方便的技巧去优雅使用Colab。</p>
+<h2 id="一、前提条件">一、前提条件</h2>
+<ol>
+<li>一个google账号</li>
+<li>可以访问google的网络环境</li>
+<li>最好购买pro会员，非常划算（个人毕业论文就是靠Colab训练的）</li>
+</ol>
+<h2 id="二、从零开始申请一个gpu服务器">二、从零开始申请一个gpu服务器</h2>
+<p>打开网址<a href="https://link.zhihu.com/?target=http%3A//drive.google.com/">谷歌云盘</a>后，在+号中点击关联更多应用，添加google colaboratory<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/09/28/1222vu1.png" alt=""><br>
+然后在选项栏中选择Colaboratory进入jupyter的编辑页面<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/09/28/128osnt.png" alt="如果右上角红色框的部分显示的是连接，说明还没有分配机器，点击连接即可"></p>
+<h2 id="三、一些使用小技巧">三、一些使用小技巧</h2>
+<p><strong>所有命令需要前面加!</strong></p>
+<h3 id="（一）初始设置"><strong>（一）初始设置</strong></h3>
+<ol>
+<li>占用显存</li>
+</ol>
+<p>一般来说，此时就会分配给你一个gpu服务器。建议先输入以下命令占用1个g的gpu显存，以让谷歌认为你没有滥用分配给你的gpu。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">a = torch.Tensor([<span class="number">1000</span>, <span class="number">1000</span>, <span class="number">1000</span>]).cuda()  <span class="comment"># 大约占用 1.1G 显存</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>查看分配给自己的显卡</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">!nvidia-smi</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">Tue Jul 13 02:58:23 2021       </span><br><span class="line">+-----------------------------------------------------------------------------+</span><br><span class="line">| NVIDIA-SMI 470.42.01    Driver Version: 460.32.03    CUDA Version: 11.2     |</span><br><span class="line">|-------------------------------+----------------------+----------------------+</span><br><span class="line">| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |</span><br><span class="line">| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |</span><br><span class="line">|                               |                      |               MIG M. |</span><br><span class="line">|===============================+======================+======================|</span><br><span class="line">|   0  Tesla T4            Off  | 00000000:00:04.0 Off |                    0 |</span><br><span class="line">| N/A   53C    P0    28W /  70W |   1068MiB / 15109MiB |      0%      Default |</span><br><span class="line">|                               |                      |                  N/A |</span><br><span class="line">+-------------------------------+----------------------+----------------------+</span><br><span class="line">                                                                               </span><br><span class="line">+-----------------------------------------------------------------------------+</span><br><span class="line">| Processes:                                                                  |</span><br><span class="line">|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |</span><br><span class="line">|        ID   ID                                                   Usage      |</span><br><span class="line">|=============================================================================|</span><br><span class="line">|  No running processes found                                                 |</span><br><span class="line">+-----------------------------------------------------------------------------+</span><br></pre></td></tr></table></figure>
+<p>可以看到分配给我的显卡是tesla t4,显存大概是15g左右。以下是我在网络中找到的显卡算力图<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/09/28/129uix9.png" alt="白嫖用户分配的是t4，白嫖过度后就只给k80或者分配失败。colab pro可以分到v100或者p100"></p>
+<h3 id="（二）训练部分">（二）训练部分</h3>
+<h3 id="1-挂载google-drive">1. 挂载google drive</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> drive</span><br><span class="line">drive.mount(<span class="string">&#x27;/content/drive/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>点击出现的链接认证谷歌账号，复制认证后的字符串到输入框内。</p>
+<h3 id="2-更改工作目录">2. 更改工作目录</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.chdir(<span class="string">&quot;更改后的路径&quot;</span>) </span><br></pre></td></tr></table></figure>
+<p>网上很多教程都是用这个将工作路径更改到自己的google drive云盘下，这样的好处是google grive是每个人自己的云盘，所以在服务器实例关闭后，云盘上的文件都会保存，而服务器上的都会销毁。</p>
+<p>但是有个缺点，colab服务器与google drive的文件通信是通过网络传输的，因此造成I/O速度会慢很多。</p>
+<h3 id="3-google-drive扩容">3. google drive扩容</h3>
+<p>可以通过淘宝或者百度搜索谷歌云盘扩容的方法给自己云盘扩容，用来装训练数据。<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/09/28/12bjtz2.png" alt="其中的shareddrives就是无限量的空间，存放训练数据"><br>
+这种共享空间无限量大小，但是数据不一定安全，可能会被泄露或者丢失。但是训练数据没在乎这些问题，因此正好适合存放训练数据和训练的模型。</p>
+<h3 id="4-移动训练数据">4. 移动训练数据</h3>
+<p>原因我在上文说过，训练数据最好复制一份到服务器里。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!<span class="built_in">cp</span> /content/drive/Shareddrives/deeplearning_data/centernet-pytorch.zip /content </span><br><span class="line">!unzip -d /content/centernet</span><br></pre></td></tr></table></figure>
+<p>这里是将我的centernet代码的压缩包复制到服务器里，然后解压缩。</p>
+<h3 id="5-训练记得加断点且将输出路径设置为google-drive"><s>5. 训练记得加断点且将输出路径设置为google drive</s></h3>
+<p><s>假如训练时间久，服务器连接可能就断了。假如没有断点的话，那么训练就白费了。所以需要将输出路径改为google drive的位置（就是把输出路径更改为/content/drive/Shareddrives/deeplearning_data/。这里/content/drive/后面的路径每个人都不相同，自己看着修改吧）</s></p>
+<h3 id="5-将模型训练结果文件夹软链接到google-drive里">5. 将模型训练结果文件夹软链接到google drive里</h3>
+<p>之前保存训练中间文件的方式为手动将代码里的输出路径修改为google drive的路径，不过我发现可以使用软链接实现同样的效果，优点是无需修改源代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># !ln -s &#x27;google drive路径&#x27; &#x27;输出结果路径&#x27;</span></span><br><span class="line"><span class="comment"># 如下所示，将yolo v5的训练结果软链接到google drive路径下</span></span><br><span class="line">!<span class="built_in">ln</span> -s /content/drive/MyDrive/yolov5/runs /content/yolov5/runs</span><br></pre></td></tr></table></figure>
+<h3 id="6-开始训练">6. 开始训练</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!python train.py</span><br></pre></td></tr></table></figure>
+<h3 id="7-防止断连">7. 防止断连</h3>
+<p>方法一</p>
+<p>每60分钟自动运行代码刷新，解除90分钟断开限制. 使用方法：colab页面按下 F12或者 Ctrl+Shift+I (mac按 Option+Command+I) 在console（控制台） 输入以下代码并回车. 复制以下代码粘贴在浏览器console！！不要关闭浏览器以免失效</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ConnectButton</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Connect pushed&quot;</span>); </span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#connect&quot;</span>).<span class="title function_">click</span>() </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setInterval</span>(<span class="title class_">ConnectButton</span>,<span class="number">60000</span>);</span><br></pre></td></tr></table></figure>
+<p>方法二</p>
+<p>安装浏览器插件Colab Alive<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/09/28/12c88qr.png" alt=""></p>
+<h3 id="参考文章">参考文章</h3>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/iefenghao/article/details/97956440?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight">最新英伟达GPU算力评估表格_iefenghao的博客-CSDN博客_gpu算力</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/smiler/p/7000200.html">gunzip 和 unzip 解压文件到指定的目录</a></li>
+<li><a href="https://link.zhihu.com/?target=https%3A//juejin.cn/post/6972787831907287077">白嫖google gpu服务器 Colab实用教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6972787831907287077">佘城璐：Google Colab 的正确使用姿势634 赞同 · 75 评论文章</a></li>
+<li><a target="_blank" rel="noopener" href="https://colab.research.google.com/github/iErics/gd-utils/blob/master/Colab_gd_utils.ipynb">Colab-gd-utils.ipynb</a></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://blog.cyicz123.top">cyicz123</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.cyicz123.top/posts/d7ca2ef9/">https://blog.cyicz123.top/posts/d7ca2ef9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.cyicz123.top" target="_blank">cyicz123的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/Colab/">Colab</a><a class="post-meta__tags" href="/tags/%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">使用技巧</a></div><div class="post_share"><div class="social-share" data-image="https://image.cyicz123.top/i/2022/06/02/klc0ek-0.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/1cfd214e/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klbjcv-0.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">兔子繁衍问题</div></div></a></div><div class="next-post pull-right"><a href="/posts/4d01e9bf/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klhwru-0.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【玩转docker】docker和docker-compose多平台安装</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/louztr-0.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">cyicz123</div><div class="author-info__description">个人技术分享</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/cyicz123"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/cyicz123" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:cyicz123@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.zhihu.com/people/cyicz123.top/posts" target="_blank" title="知乎"><i class="fa-brands fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to cyicz123's blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6"><span class="toc-text">一、前提条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%94%B3%E8%AF%B7%E4%B8%80%E4%B8%AAgpu%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">二、从零开始申请一个gpu服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-text">三、一些使用小技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E5%A7%8B%E8%AE%BE%E7%BD%AE"><span class="toc-text">（一）初始设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E8%AE%AD%E7%BB%83%E9%83%A8%E5%88%86"><span class="toc-text">（二）训练部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8C%82%E8%BD%BDgoogle-drive"><span class="toc-text">1. 挂载google drive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9B%B4%E6%94%B9%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="toc-text">2. 更改工作目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-google-drive%E6%89%A9%E5%AE%B9"><span class="toc-text">3. google drive扩容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%A7%BB%E5%8A%A8%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE"><span class="toc-text">4. 移动训练数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%AE%AD%E7%BB%83%E8%AE%B0%E5%BE%97%E5%8A%A0%E6%96%AD%E7%82%B9%E4%B8%94%E5%B0%86%E8%BE%93%E5%87%BA%E8%B7%AF%E5%BE%84%E8%AE%BE%E7%BD%AE%E4%B8%BAgoogle-drive"><span class="toc-text">5. 训练记得加断点且将输出路径设置为google drive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%B0%86%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E7%BB%93%E6%9E%9C%E6%96%87%E4%BB%B6%E5%A4%B9%E8%BD%AF%E9%93%BE%E6%8E%A5%E5%88%B0google-drive%E9%87%8C"><span class="toc-text">5. 将模型训练结果文件夹软链接到google drive里</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%BC%80%E5%A7%8B%E8%AE%AD%E7%BB%83"><span class="toc-text">6. 开始训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E9%98%B2%E6%AD%A2%E6%96%AD%E8%BF%9E"><span class="toc-text">7. 防止断连</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-text">参考文章</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/782176d8/" title="【玩转Docker】Docker替代Anaconda进行Python开发"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klfb23-0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【玩转Docker】Docker替代Anaconda进行Python开发"/></a><div class="content"><a class="title" href="/posts/782176d8/" title="【玩转Docker】Docker替代Anaconda进行Python开发">【玩转Docker】Docker替代Anaconda进行Python开发</a><time datetime="2022-10-14T15:06:17.889Z" title="更新于 2022-10-14 23:06:17">2022-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1ff9cff3/" title="【玩转docker】反向代理神器：Nginx Proxy Manager"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klce7x-0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【玩转docker】反向代理神器：Nginx Proxy Manager"/></a><div class="content"><a class="title" href="/posts/1ff9cff3/" title="【玩转docker】反向代理神器：Nginx Proxy Manager">【玩转docker】反向代理神器：Nginx Proxy Manager</a><time datetime="2022-10-14T14:12:29.741Z" title="更新于 2022-10-14 22:12:29">2022-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4d01e9bf/" title="【玩转docker】docker和docker-compose多平台安装"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klhwru-0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【玩转docker】docker和docker-compose多平台安装"/></a><div class="content"><a class="title" href="/posts/4d01e9bf/" title="【玩转docker】docker和docker-compose多平台安装">【玩转docker】docker和docker-compose多平台安装</a><time datetime="2022-10-14T14:09:38.521Z" title="更新于 2022-10-14 22:09:38">2022-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/66e43908/" title="千字深入浅出C语言指针"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klheo5-0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="千字深入浅出C语言指针"/></a><div class="content"><a class="title" href="/posts/66e43908/" title="千字深入浅出C语言指针">千字深入浅出C语言指针</a><time datetime="2022-10-12T12:29:00.805Z" title="更新于 2022-10-12 20:29:00">2022-10-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4a17b156/" title="Hello World"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klheo5-0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/posts/4a17b156/" title="Hello World">Hello World</a><time datetime="2022-10-12T12:29:00.804Z" title="更新于 2022-10-12 20:29:00">2022-10-12</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By cyicz123</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>闽ICP备20002716号-3号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://comments.cyicz123.top',
+      pageview: true,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: true,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" style="margin-inline:5px" data-title="本站使用又拍云为全站提供CDN加速" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN%E5%8A%A0%E9%80%9F-%E5%8F%88%E6%8B%8D%E4%BA%91-blue" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><!-- hexo injector body_end end --></body></html>

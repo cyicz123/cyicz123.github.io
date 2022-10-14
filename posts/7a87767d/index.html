@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>OpenCV4.1.0安装 | cyicz123的博客</title><meta name="keywords" content="RM,教程"><meta name="author" content="cyicz123"><meta name="copyright" content="cyicz123"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="约定使用OpenCV4.1.0版本开发。这篇博客记录win10安装OpenCV和配置VS 2019 OpenCV编程环境。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCV4.1.0安装">
+<meta property="og:url" content="https://blog.cyicz123.top/posts/7a87767d/index.html">
+<meta property="og:site_name" content="cyicz123的博客">
+<meta property="og:description" content="约定使用OpenCV4.1.0版本开发。这篇博客记录win10安装OpenCV和配置VS 2019 OpenCV编程环境。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.cyicz123.top/i/2022/06/02/kl9lgg-0.png">
+<meta property="article:published_time" content="2020-10-02T11:00:16.000Z">
+<meta property="article:modified_time" content="2022-10-12T12:29:00.801Z">
+<meta property="article:author" content="cyicz123">
+<meta property="article:tag" content="RM">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.cyicz123.top/i/2022/06/02/kl9lgg-0.png"><link rel="shortcut icon" href="https://image.cyicz123.top/i/2022/06/03/1skflq-0.png"><link rel="canonical" href="https://blog.cyicz123.top/posts/7a87767d/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//static.cloudflareinsights.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="vtqqXOAcv5Gefo8TtN9Vif-OYFKLG7a5PxyS8PsgH0Y"/><meta name="baidu-site-verification" content="code-NVknD7SdXy"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?91db1c990c79aee7a9c563188382c860";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-P8RP93D1Q6"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-P8RP93D1Q6');
+</script><script defer="defer" data-pjax="data-pjax" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;e715f27998394a36959cfbc81b9b6d07&quot;}"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":300,"languages":{"author":"作者: cyicz123","link":"链接: ","source":"来源: cyicz123的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'OpenCV4.1.0安装',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-12 20:29:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/louztr-0.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 自诉</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://image.cyicz123.top/i/2022/06/02/kl9lgg-0.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">cyicz123的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 自诉</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">OpenCV4.1.0安装</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-10-02T11:00:16.000Z" title="发表于 2020-10-02 19:00:16">2020-10-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-12T12:29:00.801Z" title="更新于 2022-10-12 20:29:00">2022-10-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/RM/">RM</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">641</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title="OpenCV4.1.0安装"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span class="waline-pageview-count" data-path="/posts/7a87767d/"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/7a87767d/#post-comment"><span class="waline-comment-count" data-path="/posts/7a87767d/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>约定使用OpenCV4.1.0版本开发。这篇博客记录win10安装OpenCV和配置VS 2019 OpenCV编程环境。</p>
+<span id="more"></span>
+<h2 id="官网下载OpenCV4-1-0">官网下载OpenCV4.1.0</h2>
+<p>去<a target="_blank" rel="noopener" href="https://opencv.org/releases/">官网下载</a><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/opencvlibrary/files/4.1.0/opencv-4.1.0-vc14_vc15.exe/download">OpenCV4.1.0</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002143714.png" alt="官网"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002143731.png" alt="OpenCV4.1.0"></p>
+<h2 id="解压并添加环境变量">解压并添加环境变量</h2>
+<p>下载好后，双击运行exe程序解压，选择一个解压后的目录。( 其会自动生成一个opencv目录，不需要单独再创一个opencv目录。另，<strong>不建议将其解压到C盘根目录下的Program Files或Program File (x86)目录下，可能会因系统权限导致各种问题</strong> )</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002143921.png" alt="解压"></p>
+<h2 id="新建VS-2019配置属性表">新建VS 2019配置属性表</h2>
+<p>在VS 2019中新建一个空项目（具体操作看<a target="_blank" rel="noopener" href="https://cyicz123.top/2020/10/01/RM%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">RM编程环境配置</a>），然后打开属性管理器</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002152922.png" alt="属性管理器"></p>
+<p>选择Debug X64-&gt;右键-&gt;添加新项目属性表</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002153344.png" alt="新项目属性表"></p>
+<p>这里我重命名为debug为了等下和release属性表区分</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://image.cyicz123.top/img/20201002154008.png" alt="debug"></p>
+<h2 id="添加头文件和库文件">添加头文件和库文件</h2>
+<p>在刚刚安装opencv的目录中找到如下文件</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 头文件</span></span><br><span class="line">C:\Users\60292\AppData\Local\opencv\build\include</span><br><span class="line">C:\Users\60292\AppData\Local\opencv\build\include\opencv2</span><br><span class="line"><span class="section"># 库文件</span></span><br><span class="line">C:\Users\60292\AppData\Local\opencv\build\x64\vc15\lib</span><br></pre></td></tr></table></figure>
+<p>右键点击刚刚添加的debug属性表</p>
+<p>将刚刚的头文件目录路径添加到包含目录里，库文件目录路径添加到库目录里</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://image.cyicz123.top/img/20201002154154.png" alt="包含目录"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002154624.png" alt="包含目录路径"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002154655.png" alt="库目录路径"></p>
+<p>添加依赖库</p>
+<p>进入刚才库文件的目录，复制库文件的名字。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">#根据自己安装版本选择</span></span><br><span class="line">opencv<span class="emphasis">_world410d.lib # 带后缀d的为目前debug属性表依赖</span></span><br><span class="line"><span class="emphasis">opencv_</span>world411.lib	 # 不带后缀d的为等下release属性表依赖</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://image.cyicz123.top/img/20201002154214.png" alt=""></p>
+<p>最后点击确定完成debug属性表的设置。</p>
+<h2 id="设置release属性表">设置release属性表</h2>
+<p>选择Release X64-&gt;右键-&gt;添加新项目属性表</p>
+<p>重命名为release与前文的debug区分</p>
+<p>包含目录和库目录设置和前文一样，只有最后添加依赖库时要把带d后缀去掉</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002155019.png" alt="依赖库"></p>
+<p><strong>设置完毕后需要重启电脑</strong></p>
+<h2 id="代码测试">代码测试</h2>
+<p>新建源文件</p>
+<p>输入以下代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Mat src = <span class="built_in">imread</span>(<span class="string">&quot;C:/Girlfriend.jpg&quot;</span>); <span class="comment">//图片路径记得修改</span></span><br><span class="line">    <span class="keyword">if</span> (src.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;image load fail&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">namedWindow</span>(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">    <span class="built_in">imshow</span>(<span class="string">&quot;test&quot;</span>, src);</span><br><span class="line">    <span class="built_in">waitKey</span>(<span class="number">0</span>);<span class="comment">//没有的话，窗口一闪而过。</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>记得将上面的类型改为Debug和X64</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.githubusercontent.com/cyicz123/Picture/main/img/20201002155643.png" alt="修改为Debug"></p>
+<p>F5运行</p>
+<p>弹出西野七濑照片</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://image.cyicz123.top/img/20201002155727.png" alt="西野七濑"></p>
+<h2 id="最后">最后</h2>
+<p>其他项目代码可以直接在属性管理器里添加现有属性表（即上文建立的的不过debug和release属性表），debug模式用debug属性表，release模式用release属性表。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://blog.cyicz123.top">cyicz123</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.cyicz123.top/posts/7a87767d/">https://blog.cyicz123.top/posts/7a87767d/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.cyicz123.top" target="_blank">cyicz123的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/RM/">RM</a><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a></div><div class="post_share"><div class="social-share" data-image="https://image.cyicz123.top/i/2022/06/02/kl9lgg-0.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/6bd85733/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/kkyikn-0.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">RM编程环境配置</div></div></a></div><div class="next-post pull-right"><a href="/posts/fcef969/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/kl9lgg-0.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">大一培训策划</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/6bd85733/" title="RM编程环境配置"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/kkyikn-0.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-10-12</div><div class="title">RM编程环境配置</div></div></a></div><div><a href="/posts/fcef969/" title="大一培训策划"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/kl9lgg-0.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-10-12</div><div class="title">大一培训策划</div></div></a></div><div><a href="/posts/bd0f73d1/" title="github团队协作"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klgb04-0.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-10-12</div><div class="title">github团队协作</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/louztr-0.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">cyicz123</div><div class="author-info__description">个人技术分享</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/cyicz123"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/cyicz123" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:cyicz123@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.zhihu.com/people/cyicz123.top/posts" target="_blank" title="知乎"><i class="fa-brands fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to cyicz123's blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDOpenCV4-1-0"><span class="toc-text">官网下载OpenCV4.1.0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B%E5%B9%B6%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">解压并添加环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BAVS-2019%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E8%A1%A8"><span class="toc-text">新建VS 2019配置属性表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%A4%B4%E6%96%87%E4%BB%B6%E5%92%8C%E5%BA%93%E6%96%87%E4%BB%B6"><span class="toc-text">添加头文件和库文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AErelease%E5%B1%9E%E6%80%A7%E8%A1%A8"><span class="toc-text">设置release属性表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95"><span class="toc-text">代码测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-text">最后</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/782176d8/" title="【玩转Docker】Docker替代Anaconda进行Python开发"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klfb23-0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【玩转Docker】Docker替代Anaconda进行Python开发"/></a><div class="content"><a class="title" href="/posts/782176d8/" title="【玩转Docker】Docker替代Anaconda进行Python开发">【玩转Docker】Docker替代Anaconda进行Python开发</a><time datetime="2022-10-14T15:06:17.889Z" title="更新于 2022-10-14 23:06:17">2022-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1ff9cff3/" title="【玩转docker】反向代理神器：Nginx Proxy Manager"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klce7x-0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【玩转docker】反向代理神器：Nginx Proxy Manager"/></a><div class="content"><a class="title" href="/posts/1ff9cff3/" title="【玩转docker】反向代理神器：Nginx Proxy Manager">【玩转docker】反向代理神器：Nginx Proxy Manager</a><time datetime="2022-10-14T14:12:29.741Z" title="更新于 2022-10-14 22:12:29">2022-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4d01e9bf/" title="【玩转docker】docker和docker-compose多平台安装"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klhwru-0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【玩转docker】docker和docker-compose多平台安装"/></a><div class="content"><a class="title" href="/posts/4d01e9bf/" title="【玩转docker】docker和docker-compose多平台安装">【玩转docker】docker和docker-compose多平台安装</a><time datetime="2022-10-14T14:09:38.521Z" title="更新于 2022-10-14 22:09:38">2022-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/66e43908/" title="千字深入浅出C语言指针"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klheo5-0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="千字深入浅出C语言指针"/></a><div class="content"><a class="title" href="/posts/66e43908/" title="千字深入浅出C语言指针">千字深入浅出C语言指针</a><time datetime="2022-10-12T12:29:00.805Z" title="更新于 2022-10-12 20:29:00">2022-10-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4a17b156/" title="Hello World"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.cyicz123.top/i/2022/06/02/klheo5-0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/posts/4a17b156/" title="Hello World">Hello World</a><time datetime="2022-10-12T12:29:00.804Z" title="更新于 2022-10-12 20:29:00">2022-10-12</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By cyicz123</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>闽ICP备20002716号-3号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://comments.cyicz123.top',
+      pageview: true,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: true,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" style="margin-inline:5px" data-title="本站使用又拍云为全站提供CDN加速" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN%E5%8A%A0%E9%80%9F-%E5%8F%88%E6%8B%8D%E4%BA%91-blue" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><!-- hexo injector body_end end --></body></html>
